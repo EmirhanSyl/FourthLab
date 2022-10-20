@@ -17,13 +17,13 @@ public class FourthLab {
         
         //----------------------------------------------------
         int limit = 3000;
-        FindIterationCount(3000);
+        FindIterationCount(limit);
         
         //----------------------------------------------------
-        System.out.println("");
+        System.out.println(FindBiggestDivisor(14, 12));
         
         //----------------------------------------------------
-        System.out.println("");
+        FindReverse(548957);
         
         //----------------------------------------------------
         System.out.println("");
@@ -80,7 +80,53 @@ public class FourthLab {
         System.out.println("Loop lmit exceed at " + iterationCount + "th iteration and result is: " + result);
     }
     
-    public static void Example_5(){
+    public static int FindBiggestDivisor(int num1, int num2){
         
+        int maxDevisorOfFirst = 1;
+        int maxDevisorOfSec = 1;
+        
+        int i = 1;
+        while(i < num1){
+            if (num1 % i == 0) {
+                maxDevisorOfFirst = i;
+            }
+            i++;
+        }
+        
+        i = 1;
+        while(i < num2){
+            if (num2 % i == 0) {
+                maxDevisorOfSec = i;
+            }
+            i++;
+        }
+        
+        return (maxDevisorOfFirst > maxDevisorOfSec) ? maxDevisorOfFirst : maxDevisorOfSec;
+    }
+    
+    
+        public static int FindBiggestDivisorInBetterWay(int num1, int num2){
+        
+        int maxDevisor = 1;
+        
+        int i = 1;
+        while(i < num1 || i < num2){
+            if ((num1 % i == 0 && num1 != i) || (num2 % i == 0 && num2 != i)) {
+                maxDevisor = i;
+            }
+            i++;
+        }
+        
+        return maxDevisor;
+    }
+        
+    public static void FindReverse(int number){
+        int lastDigit;
+        
+        while(number > 0){
+             lastDigit = number % 10;             
+             number = number / 10;
+             System.out.print(lastDigit);
+        }
     }
 }
